@@ -1,0 +1,229 @@
+:root {
+  --primary-nutmeg: hsl(14, 45%, 36%);
+  --primary-dark-raspberry: hsl(332, 51%, 32%);
+  --neutral-white: hsl(0, 0%, 100%);
+  --neutral-rose-white: hsl(330, 100%, 98%);
+  --neutral-eggshell: hsl(30, 54%, 90%);
+  --neutral-light-grey: hsl(30, 18%, 87%);
+  --neutral-wenge-brown: hsl(30, 10%, 34%);
+  --neutral-dark-charcoal: hsl(24, 5%, 18%);
+  --neutral-dark-charcoal-light: hsl(24 5% 18% / 30%);
+  --paragraph: 1rem;
+  --ff-body: 'Outfit';
+  --ff-headings: 'Young Serif';
+  --fz-heading-secondary: 2rem;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--ff-body);
+  display: grid;
+  background-color: var(--neutral-eggshell);
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  margin-block-start: 0;
+  font-family: var(--ff-headings);
+}
+
+h2 {
+  font-size: var(--fz-heading-secondary);
+  margin-block-end: 0;
+  color: var(--primary-nutmeg);
+}
+
+p {
+  font-size: var(--paragraph);
+  font-weight: 400;
+  color: var(--neutral-wenge-brown);
+}
+
+@font-face {
+  font-family: 'Young Serif';
+  src: url('../fonts/young-serif/YoungSerif-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/outfit/Outfit-VariableFont_wght.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/outfit/Outfit-VariableFont_wght.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/outfit/Outfit-VariableFont_wght.ttf');
+  font-weight: 700;
+}
+
+.text-bold {
+  color: var(--neutral-dark-charcoal);
+  font-weight: 600;
+}
+
+.padding-section {
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+
+.horizontal-rule {
+  border-block-end: 0.1rem solid var(--neutral-wenge-brown);
+  opacity: 0.3;
+}
+
+.recipe {
+  /* max-width: 31.25rem; */
+  background-color: var(--neutral-white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.recipe-title {
+  margin-block: 0;
+  font-size: 1.8rem;
+  font-weight: 100;
+}
+
+.recipe-preparation {
+  padding-block: 0;
+}
+
+.recipe-preparation-wrapper {
+  background-color: var(--neutral-rose-white);
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  border-radius: 0.8rem;
+}
+
+.recipe-preparation__title {
+  color: var(--primary-dark-raspberry);
+  font-size: 1.2rem;
+  margin-block-start: 0;
+  font-family: var(--ff-body);
+}
+
+.recipe-preparation__list,
+.recipe-instructions__list {
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.recipe-instructions__list {
+  counter-reset: item;
+}
+
+.recipe__bullets,
+.recipe__numbers {
+  color: var(--neutral-wenge-brown);
+  list-style-type: none;
+}
+
+.recipe__bullets::before {
+  content: '•';
+  color: var(--primary-dark-raspberry);
+  display: inline-block;
+  block-size: 1.3rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.recipe__numbers {
+  margin-block-end: 0.7rem;
+}
+
+.recipe__numbers::before {
+  counter-increment: item;
+  content: counter(item) '.';
+  color: var(--primary-dark-raspberry);
+  block-size: 1.3rem;
+  margin-inline-end: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.recipe-nutrition {
+  padding-block-end: 1.5rem;
+}
+
+.recipe-nutrition__table {
+  border-collapse: collapse;
+  border-spacing: 1.5rem;
+}
+
+.recipe-nutrition__type {
+  padding-block-start: 1.25rem;
+  padding-block-end: 0.5rem;
+  border-block-end: 0.1rem solid var(--neutral-dark-charcoal-light);
+  padding-inline-end: 5rem;
+  color: var(--neutral-wenge-brown);
+}
+
+.recipe-nutrition__values {
+  color: var(--primary-nutmeg);
+  font-weight: 600;
+}
+
+/* Media Queries */
+
+@media (min-width: 48em) {
+  body {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, auto);
+    place-content: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .recipe {
+    grid-column: 3 / 5;
+    padding: 0.5rem;
+  }
+
+  .recipe-title {
+    font-size: 1.5rem;
+  }
+
+  .recipe-intro__cover {
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .recipe-copy {
+    font-size: 0.65rem;
+  }
+
+  .recipe__bullets,
+  .text-bold {
+    font-size: 0.9rem;
+  }
+}
